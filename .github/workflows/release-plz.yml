@@ -44,6 +44,7 @@ jobs:
       - *checkout
       - *install-rust
       - name: Run release-plz
+        working-directory: uiactivity_ios_rs
         uses: release-plz/action@v0.5
         with:
           command: release-pr
