@@ -42,8 +42,8 @@ uiactivity_ios_rs = { version = "=0.1.0" }
 
 ### Resources
 
-- https://developer.apple.com/documentation/uikit/uiactivity
-- https://shadowfacts.net/2023/rust-swift/
+- <https://developer.apple.com/documentation/uikit/uiactivity>
+- <https://shadowfacts.net/2023/rust-swift/>
 
 ## License
 

@@ -28,7 +28,7 @@ pub fn share(_text: &str, _callback: fn(Option<String>)) {
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn uiactivity_ios_rs_did_end(
+unsafe extern "C" fn uiactivity_ios_rs_did_end(
     activity_type_ptr: *const u8,
     activity_type_len: u64,
 ) {
