@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: --deny warnings
+  RUSTDOCFLAGS: --deny warnings
+
+jobs:
+  # Check formatting.
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+
+      - name: Check formatting
+        working-directory: uiactivity_ios_rs
+        run: cargo fmt --all -- --check
+
+  # Run Clippy lints.
+  clippy:
+    name: Clippy
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Populate target directory from cache
+        uses: Leafwing-Studios/cargo-cache@v2
+        with:
+          manifest-path: uiactivity_ios_rs/Cargo.toml
+
+      - name: Run Clippy lints
+        working-directory: uiactivity_ios_rs
+        run: cargo clippy --workspace --all-features --all-targets -- --deny warnings
+
+  # Check documentation.
+  doc:
+    name: Docs
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@nightly
+
+      - name: Populate target directory from cache
+        uses: Leafwing-Studios/cargo-cache@v2
+        with:
+          manifest-path: uiactivity_ios_rs/Cargo.toml
+
+      - name: Check documentation
+        working-directory: uiactivity_ios_rs
+        run: cargo doc --workspace --all-features --document-private-items --no-deps

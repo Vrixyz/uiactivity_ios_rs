@@ -1,0 +1,26 @@
+[package]
+name = "uiactivity_ios_rs"
+version = "0.3.0"
+edition = "2024"
+license = "MIT"
+authors = ["Thierry Berger <contact@thierryberger.com>"]
+documentation = "https://docs.rs/uiactivity_ios_rs"
+repository = "https://github.com/vrixyz/uiactivity_ios_rs"
+keywords = ["ads", "gamedev", "mobile", "ios", "swift"]
+description = "Use AppLovin SDK on iOS in Rust"
+
+[package.metadata.docs.rs]
+targets = [
+    # macOS
+    "aarch64-apple-darwin",
+    "x86_64-apple-darwin",
+    # iOS
+    "aarch64-apple-ios",
+]
+
+[dependencies]
+winit = { version = "0.30", default-features = false, features = ["rwh_06"] }
+
+
+[lints.rust]
+missing_docs = "warn"
