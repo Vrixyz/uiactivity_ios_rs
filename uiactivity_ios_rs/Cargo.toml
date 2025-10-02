@@ -5,7 +5,7 @@ edition = "2024"
 license = "MIT"
 authors = ["Thierry Berger <contact@thierryberger.com>"]
 documentation = "https://docs.rs/uiactivity_ios_rs"
-repository = "https://github.com/vrixyz/uiactivity_ios_rs"
+repository = "https://github.com/ThierryBerger/uiactivity_ios_rs"
 keywords = ["UIAactivity", "gamedev", "mobile", "ios", "swift"]
 description = "Start a UIActivity on iOS from Rust code."
 

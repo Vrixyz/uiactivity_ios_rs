@@ -19,7 +19,7 @@ Rust crate and Swift Package Module to open an [UIActivity](https://developer.ap
 
 ### 1. Add to XCode
 
-* Go to `File` -> `Add Package Dependencies` and paste `https://github.com/vrixyz/uiactivity_ios_rs.git` into the search bar on the top right.
+* Go to `File` -> `Add Package Dependencies` and paste `https://github.com/ThierryBerger/uiactivity_ios_rs.git` into the search bar on the top right.
 
 ### 2. Add Rust dependency
 
